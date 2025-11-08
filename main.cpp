@@ -1,17 +1,17 @@
 #include <iostream>
+#include <string>
+
 using namespace std;
 
-void changeValue(int &a) {
-    a = 5;
+int x() {
+    cout << "1" << endl;
+    cout << "2" << endl;
+
+    cout << "3" << endl;
 }
 
 int main() {
-
-    int a = 1;
-
-    changeValue(a);
-
-    cout << "Value of a: " << a << endl; // This will print 1, not 5
+    x();
 
     return 0;
 }
