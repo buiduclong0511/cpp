@@ -2,30 +2,36 @@
 
 using namespace std;
 
-int reverseNumber(int n) {
+// fib: 0, 1, 1, 2, 3,... (wiki)
+// fib(1) = 0
+// fib(2) = 1
+// fib(3) = fib(1) + fib(2)
+// fib(4) = fib(2) + fib(3)
+// fib(n) = fib(n - 2) + fib(n - 1) + ... + 1 + 0
+
+int fib(int n) {
+    if (n == 1) {
+        return 0;
+    }
+
+    if (n == 2) {
+        return 1;
+    }
+
+    int a = 0;
+    int b = 1;
     int result = 0;
+    for(int i = 3; i <= n; i++) {
+        result = a + b;
 
-    while(n > 0) {
-        // Lấy ra chữ số cuối cùng bằng cách chia dư cho 10
-        int y = n % 10;
-        
-        // sau khi có chữ số cuối cùng thì nhân kết quả hiện tại với 10 
-        // sau đó cộng thêm chữ số cuối cùng vào hàng đơn vị
-        result = result * 10 + y;
-
-        // chia n cho 10 để xoá bớt 1 hàng chữ số đi
-        n /= 10;
-
-        // Cứ thế lặp lại cho đến khi n = 0
+        a = b;
+        b = result;
     }
 
     return result;
 }
 
 int main() {
-    cout << reverseNumber(1230) << endl;
-    cout << reverseNumber(0) << endl;
-    cout << reverseNumber(231) << endl;
-
+    
     return 0;
 }
